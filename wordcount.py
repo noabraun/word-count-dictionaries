@@ -10,8 +10,16 @@ for line in my_file:
     #working on line in file
     words_list = line.rstrip().split(' ')
     #have list of each word in the line
+    punctuation = [',','!','.','?']
 
     for word in words_list:
+        word = word.lower()
+        if word[len(word)-1] in punctuation:
+            word = word[0:-1]
         word_count[word] = word_count.get(word,0)+1
 
-print word_count
+print word, word_count[word]
+
+#print word_count
+print word_count.items()
+# for pair in word_count.items()
